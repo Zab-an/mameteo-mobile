@@ -25,7 +25,7 @@
         android:background="@color/colorAccent"
         android:padding="10px"
         android:text="test"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

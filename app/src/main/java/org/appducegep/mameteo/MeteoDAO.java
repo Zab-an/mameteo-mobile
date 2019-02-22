@@ -46,7 +46,7 @@ public class MeteoDAO extends SQLiteOpenHelper {
 //        db.execSQL(SQL_MISEAJOUR_TABLE_B);
     }
 
-    public void ajouterMeteo(String soleilOuNuage)
+    public void ajouterMeteo(String soleilOuNuage, int humidite, String vent)
     {
         //Date aujourdhui = new Date();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -54,6 +54,8 @@ public class MeteoDAO extends SQLiteOpenHelper {
         meteoDuJour.put("ville", "Matane");
         meteoDuJour.put("soleilOuNuage", soleilOuNuage);
         meteoDuJour.put("date", DateFormat.format("MMMM d, yyyy ", (new Date()).getTime()).toString());
+        meteoDuJour.put("vent",vent);
+        meteoDuJour.put("humidite",humidite);
         long newRowId = db.insert("meteo", null, meteoDuJour);
 
     }

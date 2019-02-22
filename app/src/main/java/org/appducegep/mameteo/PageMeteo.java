@@ -108,12 +108,13 @@ public class PageMeteo extends AppCompatActivity {
             Element elementLieu = (Element)doc.getElementsByTagName("location").item(0);
             Element elementVille =(Element)elementLieu.getElementsByTagName("name").item(0);
             String ville = elementVille.getTextContent();
+            String vent = ventDirection +" "+ ventForce;
 
 
             System.out.println("\n//////////////////////");
             System.out.println("Ville = " + ville);
             System.out.println("Meteo = " + soleilOuNuage);
-            System.out.println("Vent : " + ventDirection + " " + ventForce + "\n");
+            System.out.println("Vent : " + vent + "\n");
             System.out.println("Humidite = " + humidite);
             System.out.println("//////////////////////");
 
@@ -123,12 +124,12 @@ public class PageMeteo extends AppCompatActivity {
             TextView affichageMeteo = (TextView)this.findViewById(R.id.meteo);
             affichageMeteo.setText(soleilOuNuage + "\n");
             affichageMeteo.append("\n\n\n\n\n");
-            affichageMeteo.append("Vent : " + ventDirection + " " + ventForce + "\n");
+            affichageMeteo.append("Vent : " + vent + "\n");
             affichageMeteo.append("Humidite : " + humidite + "\n");
 
 
             MeteoDAO meteoDAO = new MeteoDAO(getApplicationContext());
-            meteoDAO.ajouterMeteo(soleilOuNuage);
+            meteoDAO.ajouterMeteo(soleilOuNuage,Integer.parseInt(humidite),vent);
 
 
         } catch (IOException e) {
