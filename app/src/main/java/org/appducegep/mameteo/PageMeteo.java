@@ -63,7 +63,7 @@ public class PageMeteo extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        String CLE = "";
+        String CLE = "e55ed0739fea4e499a3185141192202";
         String xml = "";
 
         try {
@@ -106,14 +106,16 @@ public class PageMeteo extends AppCompatActivity {
             if(soleilOuNuage.compareTo("Sunny") == 0) soleilOuNuage = "Ensoleillé";
             else soleilOuNuage = "Nuageux";
             Element elementLieu = (Element)doc.getElementsByTagName("location").item(0);
-            Element elementVille = elementLieu.getElementsByTagName("name").item(0);
+            Element elementVille =(Element)elementLieu.getElementsByTagName("name").item(0);
             String ville = elementVille.getTextContent();
 
 
+            System.out.println("\n//////////////////////");
             System.out.println("Ville = " + ville);
             System.out.println("Meteo = " + soleilOuNuage);
             System.out.println("Vent : " + ventDirection + " " + ventForce + "\n");
             System.out.println("Humidite = " + humidite);
+            System.out.println("//////////////////////");
 
             TextView affichageMeteo = (TextView)this.findViewById(R.id.meteo);
             affichageMeteo.setText(soleilOuNuage + "\n");
