@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.format.DateFormat;
+import android.util.Log;
 
 import java.util.Date;
 
@@ -21,18 +22,28 @@ public class MeteoDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        Log.d("BASEDEDONNEES","MeteoDAO.create()");
         String SQL_CREATION_TABLE = "create table meteo(id INTEGER PRIMARY KEY, ville TEXT, soleilOuNuage TEXT, date TEXT)";
         db.execSQL(SQL_CREATION_TABLE);
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int avant, int apres) {
+        Log.d("BASEDEDONNEES","MeteoDAO.onUpgrade() de" + avant + " a " + apres);
+        String SQL_MISEAJOUR_TABLE_A = "alter table meteo add column vent TEXT";
+        db.execSQL(SQL_MISEAJOUR_TABLE_A);
+        String SQL_MISEAJOUR_TABLE_B = "alter table meteo add column humidite INTEGER";
+        db.execSQL(SQL_MISEAJOUR_TABLE_B);
 
     }
 
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onUpgrade(db, oldVersion, newVersion);
+    public void onDowngrade(SQLiteDatabase db, int avant, int apres) {
+        Log.d("BASEDEDONNEES","MeteoDAO.onUpgrade() de" + avant + " a " + apres);
+//        String SQL_MISEAJOUR_TABLE_A = "alter table meteo drop column vent ";
+//        db.execSQL(SQL_MISEAJOUR_TABLE_A);
+//        String SQL_MISEAJOUR_TABLE_B = "alter table meteo drop column vent ";
+//        db.execSQL(SQL_MISEAJOUR_TABLE_B);
     }
 
     public void ajouterMeteo(String soleilOuNuage)

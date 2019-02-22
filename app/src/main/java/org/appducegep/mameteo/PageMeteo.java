@@ -28,25 +28,25 @@ public class PageMeteo extends AppCompatActivity {
 
     private TextView libelleTitre;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_meteo:
-                    libelleTitre.setText(R.string.titre_accueil);
-                    return true;
-                case R.id.navigation_meteo_detail:
-                    libelleTitre.setText(R.string.titre_meteo_detail);
-                    return true;
-                case R.id.navigation_notifications:
-                    libelleTitre.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
+//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//
+//        @Override
+//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            switch (item.getItemId()) {
+//                case R.id.navigation_meteo:
+//                    libelleTitre.setText(R.string.titre_accueil);
+//                    return true;
+//                case R.id.navigation_meteo_detail:
+//                    libelleTitre.setText(R.string.titre_meteo_detail);
+//                    return true;
+//                case R.id.navigation_notifications:
+//                    libelleTitre.setText(R.string.title_notifications);
+//                    return true;
+//            }
+//            return false;
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +60,8 @@ public class PageMeteo extends AppCompatActivity {
         }
 
         libelleTitre = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+//        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         String CLE = "e55ed0739fea4e499a3185141192202";
         String xml = "";
