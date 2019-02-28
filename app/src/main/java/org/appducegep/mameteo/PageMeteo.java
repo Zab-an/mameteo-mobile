@@ -107,8 +107,10 @@ public class PageMeteo extends AppCompatActivity {
             else soleilOuNuage = "Nuageux";
             Element elementLieu = (Element)doc.getElementsByTagName("location").item(0);
             Element elementVille =(Element)elementLieu.getElementsByTagName("name").item(0);
+            Element elementTemperature =(Element)doc.getElementsByTagName("temp_c").item(0);
             String ville = elementVille.getTextContent();
             String vent = ventDirection +" "+ ventForce;
+            float temperature = Float.parseFloat(elementTemperature.getTextContent());
 
 
             System.out.println("\n//////////////////////");
@@ -116,6 +118,7 @@ public class PageMeteo extends AppCompatActivity {
             System.out.println("Meteo = " + soleilOuNuage);
             System.out.println("Vent : " + vent + "\n");
             System.out.println("Humidite = " + humidite);
+            System.out.println("Température = " + temperature);
             System.out.println("//////////////////////");
 
             TextView affichageTitre = (TextView) this.findViewById(R.id.titre_page_meteo);
@@ -124,6 +127,7 @@ public class PageMeteo extends AppCompatActivity {
             TextView affichageMeteo = (TextView)this.findViewById(R.id.meteo);
             affichageMeteo.setText(soleilOuNuage + "\n");
             affichageMeteo.append("\n\n\n\n\n");
+            affichageMeteo.append("Température : " + temperature + "\n");
             affichageMeteo.append("Vent : " + vent + "\n");
             affichageMeteo.append("Humidite : " + humidite + "\n");
 

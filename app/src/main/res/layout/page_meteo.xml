@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/meteo"
-        android:layout_width="360dp"
+        android:layout_width="408dp"
         android:layout_height="0dp"
         android:layout_marginTop="62dp"
         android:layout_marginBottom="249dp"
